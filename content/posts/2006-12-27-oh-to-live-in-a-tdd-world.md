@@ -1,0 +1,27 @@
+---
+title: Oh to live in a TDD world
+author: drrandom
+
+date: 2006-12-27T16:25:37+00:00
+url: /2006/12/27/oh-to-live-in-a-tdd-world/
+tags:
+  - TDD
+
+---
+Okay, I admit it, this is a rant....But I promised myself I would post more, so you have to take what you can...
+
+So here's the deal, I've been peripherally involved in a project at my current client, to the point that I know generally where things are going, but I haven't done any code review or anything like that.  The good news is that the developer working on it is fairly sharp, so I had no major worries....The fun comes when this developer (who is a contractor like myself), decides to take a offer for another gig (for way more $$, so who can really blame him).  Left in his wake is a new developer, who is trying to figure out the business as well as the code, which is not a fun thing to do, a stack of code, and deadlines which are not moving.  What is not left is any sort of design artifact on the code side.  There were some data changes, which have detailed ERDs, but nothing on the code side.  In looking at the code, it seems reasonably well put-together, though there is way more tight-coupling than I generally like to see, and a much deeper object hierarchy than I generally like to work with.
+
+Now allow me to wonder into dream-land for a bit...This is a situation where TDD would pay off big-time.  For starters, it would be more likely that the code that was left would be leaner than it currently is had this project been a TDD project.  Also there would be the wealth of code artifacts that the tests provide.  At a glance I could see which components are supposed to do what, and (assuming the test writer thought this way) why certain components where there.  Then there is the safety net for the massive refactoring that every developer does when they inherit new code (you know, the guy who wrote it originally was an idiot...I never would have done it this way...that doesn't make any sense...).
+
+This is making me start thinking about mandating a TDD approach, or at least if not mandating, fostering.  What is the best way to do that, though?  Everybody knows that developers don't take kindly to being forced to do anything, particularly when they see it as making their jobs more difficult.  And lets face it, the sorts of tests that you get from someone who doesn't &#8220;get&#8221; TDD are things like &#8220;Test1&#8221;, &#8220;Test2&#8243;...&#8221;Test132&#8221;.  What use is that?  So my challenge is to try to figure out how to introduce a concept like TDD into an organization which really has no other standards (there hasn't even been a decision regarding C# vs VB.Net), and where developers have not used TDD before.  The biggest problem with TDD initially, is that developers feel stifled.  Everyone is taught to think ahead, and try to create something that is resilient to change.  TDD throws that idea out the window, and it is damn hard to break that sort of thinking.  Particularly when your trying to baby-step your way through functionality like properties, that have to be put together in a particular way, and _should_ have tests associated with them.  Why would any rational developer spend the extra 10 minutes to write CanSetCustomerName CanGetCustomerName tests when they can implement the properties and move on?  I think the only way to do it is to figure out some way of showing first-hand where the benefits lie.  Yes, I find writing tests for my accessors a bit redundant, but I take a great deal of satisfaction at the end in the _information_ that I have managed to communicate about the code once it is done.  If I have a get test and a set test for a property, then it is pretty obvious I wanted both.  If I only have a get test, but a I defined a setter, then I know I can get rid of it.  There is also the knowledge that those small things are what the larger body of the tests are built on, and I think they provide a good way to ease into creating a new class in a TDD style.  While your writing those get and set tests you have time to think about the classes public API, and you can start to alter it a lot easier.
+
+But back to the thoughts around introducing TDD....It is hard to show the added agility, unless you are actively changing an existing project.  The Code Artifacts are apparent, but a bit muddled and confusing.  The confidence that a full test suite provides is also a bit hard to communicate, particularly to a skeptical audience.  This is not an easy problem.  I think on one level it is easy to talk to developers and tell them why this is a good thing (Scott Hanselman did an excellent job on his TDD [podcast](1)), but experience shows that when the pressure to deliver starts cranking up, most developers return to their old habits to &#8220;deliver the project on time&#8221;, regardless of the amount of time that may be lost down the road because it was not possible to do ruthless refactoring.  It is also dangerous to try to introduce TDD on a critical project....if for some reason it fails, or is delayed, there is likely to be some serious push-back from management to TDD adoption.
+
+It's not an easy problem....but I think I need to figure it out.  I think there would be serious benefits to adopting TDD, especially in my current situation with developers coming and going.  I'll just need to figure out how to share the enthusiasm, and convince others that there really is no other way to develop software.
+
+
+
+
+
+ [1]: http://www.hanselminutes.com/default.aspx?showID=42

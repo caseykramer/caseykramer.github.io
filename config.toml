@@ -1,0 +1,28 @@
+baseURL = 'http://drrandom.org/'
+languageCode = 'en-us'
+title = 'Dr Random'
+theme = "hugo-geekblog"
+
+pluralizeListTitles = false
+disqusShortname = "drrandom"
+
+# Geekblog required configuration
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+disablePathToLower = true
+enableGitInfo = false
+
+[markup]
+  [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 9
+
+[taxonomies]
+  author = "authors"
+  tag = "tags"
+
+[params]
+  subtitle = "Random stuff for random people"
+  logo = "brand.svg"
