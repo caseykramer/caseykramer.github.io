@@ -25,4 +25,4 @@ enableGitInfo = false
 
 [params]
   subtitle = "Random stuff for random people"
-  logo = "brand.svg"
+  logo = "old.svg"
